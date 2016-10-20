@@ -35,11 +35,8 @@
     "umd",
     "commonjs"
   ],
-  "author": "Krasimir Tsonev",
+  "author": "Vinutha",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/krasimir/webpack-library-starter/issues"
-  },
   "homepage": "https://github.com/krasimir/webpack-library-starter",
   "dependencies": {
     "superagent": "^2.3.0"
