@@ -11,15 +11,15 @@ const levels = {
 
 export default class DSLogger {
   constructor(logType, appName) {
-    this._logType = logType;
-    this._appName = appName;
+    this.logType = logType;
+    this.appName = appName;
   }
 
   log(logType, msg, eventType, source, attributes, callback) {
-    console.log('Log this event' + this._appName);
-    console.log('default was ' + levels[this._logType]);
+    console.log('Log this event' + this.appName);
+    console.log('default was ' + levels[this.logType]);
 
-    if (levels[logType] <= levels[this._logType]) {
+    if (levels[logType] <= levels[this.logType]) {
       request
         .post('http://localhost:8000/dslog')
         .type('application/json')
@@ -28,7 +28,7 @@ export default class DSLogger {
           logType: logType,
           msg: msg,
           eventType: 'UI_Event',
-          source: this._appName
+          source: this.appName
         })
         .end(function (err, res) {
           if (err) {
