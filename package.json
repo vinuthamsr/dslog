@@ -1,8 +1,8 @@
 {
-  "name": "webpack-library-starter",
+  "name": "ds-logger",
   "version": "0.1.3",
-  "description": "Produce universal library with webpack and es6",
-  "main": "lib/library.js",
+  "description": "Produce logging library",
+  "main": "lib/dslogger.js",
   "scripts": {
     "build": "webpack --mode=build",
     "dev": "webpack --progress --colors --watch --mode=dev",
@@ -40,5 +40,8 @@
   "bugs": {
     "url": "https://github.com/krasimir/webpack-library-starter/issues"
   },
-  "homepage": "https://github.com/krasimir/webpack-library-starter"
+  "homepage": "https://github.com/krasimir/webpack-library-starter",
+  "dependencies": {
+    "superagent": "^2.3.0"
+  }
 }

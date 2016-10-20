@@ -1,8 +1,40 @@
-export default class Library {
-  constructor() {
-    this._name = 'Library';
+var request = require('superagent');
+
+const levels = {
+  error: 0,
+  warn: 1,
+  info: 2,
+  verbose: 3,
+  debug: 4,
+  silly: 5
+};
+
+export default class DSLogger {
+  constructor(logType, appName) {
+    this._logType = logType;
+    this._appName = appName;
   }
-  get name() {
-    return this._name;
+
+  log(logType, msg, eventType, source, attributes, callback) {
+    console.log('Log this event' + this.appName);
+    console.log('default was ' + levels[this.logType]);
+
+    if (levels[logType] <= levels[this.logType]) {
+      request
+        .post('http://localhost:8000/dslog')
+        .type('application/json')
+        .accept('json')
+        .send({
+          logType: logType,
+          msg: msg,
+          eventType: 'UI_Event',
+          source: this.appName
+        })
+        .end(function (err, res) {
+          if (err) {
+            return err;
+          }
+        });
+    }
   }
 }
