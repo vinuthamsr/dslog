@@ -13,6 +13,7 @@ export default class DSLogger {
   constructor(logType, appName) {
     this.logType = logType;
     this.appName = appName;
+    this.log = this.log.bind(this);
   }
 
   log(logType, msg, eventType, source, attributes, callback) {
